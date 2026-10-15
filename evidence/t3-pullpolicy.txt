@@ -1,0 +1,8 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T11:38:15Z
+$ kubectl get deploy notice-board -o jsonpath='{.spec.template.spec.containers[0].imagePullPolicy}{"\n"}'
+Never
+
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T11:38:22Z
+$ kubectl get events --field-selector reason=Pulling
+No resources found in nb-02230136 namespace.
+

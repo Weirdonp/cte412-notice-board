@@ -1,0 +1,12 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T12:54:55Z
+$ scripts/summarise.sh evidence/t4-rest-monitor.txt
+Total requests       : 107
+Failed requests      : 0
+First timestamp      : 2026-10-15T12:53:42Z
+Last timestamp       : 2026-10-15T12:54:44Z
+Duration             : 62 s
+First / last FAIL    : none
+Responses per version:
+  1.0.0               107   first 2026-10-15T12:53:42Z   last 2026-10-15T12:54:44Z
+Mixed-version window : 0 s (only one version observed)
+

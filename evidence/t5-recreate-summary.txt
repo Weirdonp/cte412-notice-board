@@ -1,0 +1,13 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T13:17:22Z
+$ scripts/summarise.sh evidence/t5-recreate-monitor.txt
+Total requests       : 101
+Failed requests      : 7
+First timestamp      : 2026-10-15T13:16:21Z
+Last timestamp       : 2026-10-15T13:17:22Z
+Duration             : 61 s
+First / last FAIL    : 2026-10-15T13:16:49Z / 2026-10-15T13:16:58Z (9 s apart)
+Responses per version:
+  1.0.0                53   first 2026-10-15T13:16:21Z   last 2026-10-15T13:16:48Z
+  1.1.0                41   first 2026-10-15T13:17:00Z   last 2026-10-15T13:17:22Z
+Mixed-version window : 0 s (1.0.0 and 1.1.0 both observed)
+

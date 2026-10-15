@@ -6,7 +6,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: notice-board-blue
-  namespace: nb-02230146
+  namespace: nb-02230136
   labels:
     app: notice-board
     slot: blue
@@ -38,7 +38,7 @@ spec:
       containers:
         - name: notice-board
           # Baseline image from Task 2.
-          image: notice-board:02230146-1.0.0
+          image: notice-board:02230136-1.0.0
           # Never: no registry pull, ever (course rule: No registry).
           imagePullPolicy: Never
           ports:

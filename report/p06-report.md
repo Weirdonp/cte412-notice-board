@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Name | YOUR FULL NAME |
-| Student number (`<sid>`) | 02230146 |
+| Student number (`<sid>`) | 02230136 |
 | Repository | https://github.com/YOUR-USER/YOUR-REPO |
 | Date | ____ |
 
@@ -29,12 +29,12 @@ Descriptor coverage: Unit IV 4.1 (rolling, blue/green, feature flags), 4.2 (moni
 | kind | ____ |
 | kubectl (client) | ____ |
 | Cluster Kubernetes version | ____ (from `kubectl get nodes`) |
-| Cluster | `cte412-02230146`: 1 control-plane, 2 workers; host `127.0.0.1:30090` → NodePort 30090 |
-| Namespace | `nb-02230146` (quota: requests 1 CPU / 1Gi, limits 2 CPU / 2Gi, 15 Pods, 4 Services) |
+| Cluster | `cte412-02230136`: 1 control-plane, 2 workers; host `127.0.0.1:30090` → NodePort 30090 |
+| Namespace | `nb-02230136` (quota: requests 1 CPU / 1Gi, limits 2 CPU / 2Gi, 15 Pods, 4 Services) |
 | Application language | Python 3.13 (standard library `http.server`, no packages) |
 | Application base image | `python:3.13-alpine`, runs as UID 10001 (non-root) |
 | Monitor image | `busybox:1.37` |
-| Images | `notice-board:02230146-1.0.0`, `-1.1.0`, `-1.2.0-broken`, loaded with `kind load docker-image`, `imagePullPolicy: Never` |
+| Images | `notice-board:02230136-1.0.0`, `-1.1.0`, `-1.2.0-broken`, loaded with `kind load docker-image`, `imagePullPolicy: Never` |
 
 > **[SCREENSHOT - Figure 1]** `kubectl get nodes -o wide` and `docker ps` showing the three nodes and `127.0.0.1:30090->30090/tcp`. Evidence: `evidence/t1-cluster.txt`
 
@@ -42,7 +42,7 @@ Descriptor coverage: Unit IV 4.1 (rolling, blue/green, feature flags), 4.2 (moni
 
 > **[SCREENSHOT - Figure 3]** Local test of the three images: `/healthz` returns 503 for the first 5 s, then 200, 200, 503 (broken); `/notices` for 1.1.0 with `"pinnedFirst": true`. Evidence: `evidence/t2-endpoints.txt`
 
-> **[SCREENSHOT - Figure 4]** `crictl images` on a worker node showing the three `notice-board:02230146-*` images (no registry used). Evidence: `evidence/t2-loaded.txt`
+> **[SCREENSHOT - Figure 4]** `crictl images` on a worker node showing the three `notice-board:02230136-*` images (no registry used). Evidence: `evidence/t2-loaded.txt`
 
 > **[SCREENSHOT - Figure 5]** `kubectl get deploy,rs,pods,svc -o wide` after Task 3. Evidence: `evidence/t3-deploy.txt`
 
@@ -132,7 +132,7 @@ Recreate is right when two versions must never run at the same time. One example
 
 **A5. What did the feature flag change without a new image, and what did it not avoid?**
 
-The flag changed the behaviour of `/notices` (pinned notices first, `"pinnedFirst": true`) using the same image `notice-board:02230146-1.1.0`. No build, no new tag, no `kind load` (`t8-after-rollout.txt`). The same flag could be turned off just as quickly.
+The flag changed the behaviour of `/notices` (pinned notices first, `"pinnedFirst": true`) using the same image `notice-board:02230136-1.1.0`. No build, no new tag, no `kind load` (`t8-after-rollout.txt`). The same flag could be turned off just as quickly.
 
 It did not avoid a restart. The flag reaches the container as an environment variable, which is read only when the container starts. After the ConfigMap changed, the running Pods still printed `false` (`t8-after-configmap.txt`). To apply it I had to change the Pod template (`cte412/flags-revision: "2"`), which triggered a normal rolling update of the green Pods (`t8-flag-summary.txt`: ____ failed requests, ____ s rollout). It also did not avoid a brief period in which some green Pods had the flag on and some off.
 

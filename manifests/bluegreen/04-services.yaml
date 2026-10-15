@@ -9,7 +9,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: notice-board
-  namespace: nb-02230146
+  namespace: nb-02230136
   labels:
     app: notice-board
 spec:
@@ -28,7 +28,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: notice-board-ext
-  namespace: nb-02230146
+  namespace: nb-02230136
   labels:
     app: notice-board
 spec:
@@ -48,7 +48,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: notice-board-preview
-  namespace: nb-02230146
+  namespace: nb-02230136
   labels:
     app: notice-board
 spec:

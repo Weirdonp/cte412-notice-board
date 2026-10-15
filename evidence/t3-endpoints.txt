@@ -1,0 +1,5 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T11:38:32Z
+$ kubectl get endpointslice -l kubernetes.io/service-name=notice-board
+NAME                 ADDRESSTYPE   PORTS   ENDPOINTS                          AGE
+notice-board-kk4r9   IPv4          8080    10.244.1.2,10.244.2.2,10.244.2.3   70s
+

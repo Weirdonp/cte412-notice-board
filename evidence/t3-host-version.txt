@@ -1,0 +1,21 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T11:38:39Z
+$ for i in $(seq 1 12); do curl -s http://localhost:30090/version; echo; done
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-smssh"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-smssh"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-smssh"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-nwfjv"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-smssh"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-w4zv7"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-smssh"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-smssh"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-smssh"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-smssh"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-w4zv7"}
+{"version": "1.0.0", "student": "02230136", "pod": "notice-board-756f76f65d-w4zv7"}
+
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T11:38:46Z
+$ for i in $(seq 1 30); do curl -s http://localhost:30090/version; echo; done | grep -o "\"pod\": \"[^\"]*\"" | sort | uniq -c
+     10 "pod": "notice-board-756f76f65d-nwfjv"
+     13 "pod": "notice-board-756f76f65d-smssh"
+      7 "pod": "notice-board-756f76f65d-w4zv7"
+

@@ -1,0 +1,13 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T13:18:23Z
+$ scripts/summarise.sh evidence/t5-back-to-100-monitor.txt
+Total requests       : 104
+Failed requests      : 6
+First timestamp      : 2026-10-15T13:17:22Z
+Last timestamp       : 2026-10-15T13:18:22Z
+Duration             : 60 s
+First / last FAIL    : 2026-10-15T13:17:47Z / 2026-10-15T13:17:55Z (8 s apart)
+Responses per version:
+  1.1.0                48   first 2026-10-15T13:17:22Z   last 2026-10-15T13:17:46Z
+  1.0.0                50   first 2026-10-15T13:17:56Z   last 2026-10-15T13:18:22Z
+Mixed-version window : 0 s (1.1.0 and 1.0.0 both observed)
+

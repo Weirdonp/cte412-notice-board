@@ -8,7 +8,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: monitor
-  namespace: nb-02230146
+  namespace: nb-02230136
   labels:
     # Not app=notice-board, so no Service or Deployment ever selects the monitor.
     app: availability-monitor

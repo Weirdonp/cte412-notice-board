@@ -1,0 +1,6 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T11:30:06Z
+$ docker exec $CLUSTER-worker crictl images | grep notice-board
+docker.io/library/notice-board                  02230136-1.0.0          6659f6721259a       19.5MB
+docker.io/library/notice-board                  02230136-1.1.0          1b4e1e253da91       19.5MB
+docker.io/library/notice-board                  02230136-1.2.0-broken   9ac6711534422       19.5MB
+

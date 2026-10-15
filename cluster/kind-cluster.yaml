@@ -2,12 +2,12 @@
 # Purpose : kind cluster for the CTE412 assessed lab - one control-plane node and two
 #           worker nodes. Host port 30090 (127.0.0.1 only) reaches NodePort 30090.
 # Apply   : kind create cluster --config cluster/kind-cluster.yaml
-# Delete  : kind delete cluster --name cte412-02230146
+# Delete  : kind delete cluster --name cte412-02230136
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 # Cluster name carries the student number <sid> (course rule: Identity).
-# The kubectl context is therefore kind-cte412-02230146.
-name: cte412-02230146
+# The kubectl context is therefore kind-cte412-02230136.
+name: cte412-02230136
 nodes:
   - role: control-plane
     # No `image:` line, so kind uses the default node image of the installed kind

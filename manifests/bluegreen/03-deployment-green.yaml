@@ -7,7 +7,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: notice-board-green
-  namespace: nb-02230146
+  namespace: nb-02230136
   labels:
     app: notice-board
     slot: green
@@ -44,7 +44,7 @@ spec:
       containers:
         - name: notice-board
           # 1.1.0 adds category and pinned notices; pinned-first is behind FEATURE_PINNED.
-          image: notice-board:02230146-1.1.0
+          image: notice-board:02230136-1.1.0
           # Never: no registry pull, ever (course rule: No registry).
           imagePullPolicy: Never
           # Task 8.1: the six lines below are commented out during Task 7. The runbook removes
