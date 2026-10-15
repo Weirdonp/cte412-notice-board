@@ -1,0 +1,21 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T14:34:21Z
+$ kubectl get configmap notice-board-flags -o jsonpath="{.data}"; echo
+{"FEATURE_PINNED":"true"}
+
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T14:34:25Z
+$ for p in $(kubectl get pods -l slot=green -o name); do echo "$p FEATURE_PINNED=$(kubectl exec ${p#pod/} -- printenv FEATURE_PINNED)"; done
+pod/notice-board-green-846d6cbfb9-2lcc2 FEATURE_PINNED=false
+pod/notice-board-green-846d6cbfb9-qn2l6 FEATURE_PINNED=false
+pod/notice-board-green-846d6cbfb9-stgwr FEATURE_PINNED=false
+
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T14:34:30Z
+$ kubectl get pods -l slot=green
+NAME                                  READY   STATUS    RESTARTS   AGE
+notice-board-green-846d6cbfb9-2lcc2   1/1     Running   0          4m15s
+notice-board-green-846d6cbfb9-qn2l6   1/1     Running   0          4m29s
+notice-board-green-846d6cbfb9-stgwr   1/1     Running   0          4m2s
+
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T14:34:36Z
+$ curl -s http://localhost:30090/notices; echo
+{"pinnedFirst": false, "notices": [{"id": 1, "title": "Library opening hours extended", "body": "The library stays open until 22:00 on weekdays during the exam period.", "category": "library", "pinned": false}, {"id": 2, "title": "Mid-semester examination timetable published", "body": "Timetables are available at the Examination Section and on the VLE.", "category": "academic", "pinned": false}, {"id": 3, "title": "Hostel fee payment deadline", "body": "Hostel fees must be paid to the Finance Office by the end of this month.", "category": "hostel", "pinned": true}, {"id": 4, "title": "Inter-department sports day", "body": "Registration for football and volleyball closes on Friday.", "category": "events", "pinned": false}]}
+

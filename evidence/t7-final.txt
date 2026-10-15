@@ -1,0 +1,8 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T14:25:05Z
+$ kubectl get svc -o wide; curl -s http://localhost:30090/version; echo
+NAME                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE     SELECTOR
+notice-board           ClusterIP   10.96.6.225     <none>        80/TCP         167m    app=notice-board,slot=green
+notice-board-ext       NodePort    10.96.179.226   <none>        80:30090/TCP   167m    app=notice-board,slot=green
+notice-board-preview   ClusterIP   10.96.246.130   <none>        80/TCP         9m52s   app=notice-board,slot=green
+{"version": "1.1.0", "student": "02230136", "pod": "notice-board-green-b49f6dcc6-mll5j"}
+

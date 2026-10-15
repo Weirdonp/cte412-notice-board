@@ -1,0 +1,12 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T14:39:10Z
+$ scripts/summarise.sh evidence/t8-flag-monitor.txt
+Total requests       : 470
+Failed requests      : 0
+First timestamp      : 2026-10-15T14:35:04Z
+Last timestamp       : 2026-10-15T14:39:09Z
+Duration             : 245 s
+First / last FAIL    : none
+Responses per version:
+  1.1.0               470   first 2026-10-15T14:35:04Z   last 2026-10-15T14:39:09Z
+Mixed-version window : 0 s (only one version observed)
+

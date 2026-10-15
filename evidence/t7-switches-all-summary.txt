@@ -1,0 +1,13 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T14:25:00Z
+$ scripts/summarise.sh evidence/t7-switches-all-monitor.txt
+Total requests       : 669
+Failed requests      : 0
+First timestamp      : 2026-10-15T14:18:58Z
+Last timestamp       : 2026-10-15T14:24:54Z
+Duration             : 356 s
+First / last FAIL    : none
+Responses per version:
+  1.0.0               114   first 2026-10-15T14:18:58Z   last 2026-10-15T14:20:24Z
+  1.1.0               555   first 2026-10-15T14:19:32Z   last 2026-10-15T14:24:54Z
+Mixed-version window : 52 s (1.0.0 and 1.1.0 both observed)
+
