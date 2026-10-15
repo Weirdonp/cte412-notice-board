@@ -1,0 +1,29 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T14:18:04Z
+$ kubectl get deploy,svc,pods -o wide -L slot,version -n nb-02230136
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS     IMAGES                        SELECTOR                      SLOT    VERSION
+deployment.apps/notice-board-blue    3/3     3            3           2m51s   notice-board   notice-board:02230136-1.0.0   app=notice-board,slot=blue    blue    
+deployment.apps/notice-board-green   3/3     3            3           2m51s   notice-board   notice-board:02230136-1.1.0   app=notice-board,slot=green   green   
+
+NAME                           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE     SELECTOR                      SLOT   VERSION
+service/notice-board           ClusterIP   10.96.6.225     <none>        80/TCP         160m    app=notice-board,slot=blue           
+service/notice-board-ext       NodePort    10.96.179.226   <none>        80:30090/TCP   160m    app=notice-board,slot=blue           
+service/notice-board-preview   ClusterIP   10.96.246.130   <none>        80/TCP         2m51s   app=notice-board,slot=green          
+
+NAME                                     READY   STATUS    RESTARTS   AGE     IP            NODE                      NOMINATED NODE   READINESS GATES   SLOT    VERSION
+pod/monitor                              1/1     Running   0          85m     10.244.2.4    cte412-02230136-worker    <none>           <none>                    
+pod/notice-board-blue-5fcf54b448-b6bfh   1/1     Running   0          2m51s   10.244.1.8    cte412-02230136-worker2   <none>           <none>            blue    1.0.0
+pod/notice-board-blue-5fcf54b448-m7jwj   1/1     Running   0          2m51s   10.244.1.10   cte412-02230136-worker2   <none>           <none>            blue    1.0.0
+pod/notice-board-blue-5fcf54b448-vllzx   1/1     Running   0          2m51s   10.244.2.12   cte412-02230136-worker    <none>           <none>            blue    1.0.0
+pod/notice-board-green-b49f6dcc6-89vcj   1/1     Running   0          2m51s   10.244.2.11   cte412-02230136-worker    <none>           <none>            green   1.1.0
+pod/notice-board-green-b49f6dcc6-mll5j   1/1     Running   0          2m51s   10.244.2.10   cte412-02230136-worker    <none>           <none>            green   1.1.0
+pod/notice-board-green-b49f6dcc6-qj8l6   1/1     Running   0          2m51s   10.244.1.9    cte412-02230136-worker2   <none>           <none>            green   1.1.0
+
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T14:18:10Z
+$ for s in notice-board notice-board-ext notice-board-preview; do kubectl get endpointslice -n nb-02230136 -l kubernetes.io/service-name=$s; done
+NAME                 ADDRESSTYPE   PORTS   ENDPOINTS                            AGE
+notice-board-kk4r9   IPv4          8080    10.244.2.12,10.244.1.8,10.244.1.10   160m
+NAME                     ADDRESSTYPE   PORTS   ENDPOINTS                            AGE
+notice-board-ext-zvqrw   IPv4          8080    10.244.2.12,10.244.1.8,10.244.1.10   160m
+NAME                         ADDRESSTYPE   PORTS   ENDPOINTS                            AGE
+notice-board-preview-btthr   IPv4          8080    10.244.2.10,10.244.2.11,10.244.1.9   2m56s
+

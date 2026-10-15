@@ -1,0 +1,12 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T13:43:14Z
+$ scripts/summarise.sh evidence/t6-broken-monitor.txt
+Total requests       : 1309
+Failed requests      : 0
+First timestamp      : 2026-10-15T13:31:51Z
+Last timestamp       : 2026-10-15T13:43:14Z
+Duration             : 683 s
+First / last FAIL    : none
+Responses per version:
+  1.1.0              1309   first 2026-10-15T13:31:51Z   last 2026-10-15T13:43:14Z
+Mixed-version window : 0 s (only one version observed)
+

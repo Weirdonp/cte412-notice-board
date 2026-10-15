@@ -1,0 +1,18 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T13:37:25Z
+$ kubectl rollout history deployment/notice-board -n nb-02230136
+deployment.apps/notice-board 
+REVISION  CHANGE-CAUSE
+3         task 5.2: back to 1.0.0
+4         task 5.3: release 1.1.0 with RollingUpdate 0/1, minReady 5
+5         task 6.1: release 1.2.0-broken
+
+
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T13:43:22Z
+$ kubectl rollout history deployment/notice-board -n nb-02230136
+deployment.apps/notice-board 
+REVISION  CHANGE-CAUSE
+3         task 5.2: back to 1.0.0
+5         task 6.1: release 1.2.0-broken
+6         task 5.3: release 1.1.0 with RollingUpdate 0/1, minReady 5
+
+

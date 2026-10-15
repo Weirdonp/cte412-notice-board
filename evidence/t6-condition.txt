@@ -1,0 +1,5 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T13:38:32Z
+$ kubectl get deploy notice-board -n nb-02230136 -o jsonpath='{range .status.conditions[*]}{.type}{"\t"}{.status}{"\t"}{.reason}{"\t"}{.message}{"\n"}{end}'
+Available	True	MinimumReplicasAvailable	Deployment has minimum availability.
+Progressing	False	ProgressDeadlineExceeded	ReplicaSet "notice-board-698c89d644" has timed out progressing.
+

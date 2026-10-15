@@ -1,0 +1,20 @@
+# sid=02230136 context=kind-cte412-02230136 namespace=nb-02230136 time=2026-10-15T13:44:02Z
+$ kubectl diff -f manifests/rolling/01-deployment.yaml; echo "kubectl diff exit code: $?"
+diff -u -N C:\Users\DELL\AppData\Local\Temp\LIVE-1143696733/apps.v1.Deployment.nb-02230136.notice-board C:\Users\DELL\AppData\Local\Temp\MERGED-900457583/apps.v1.Deployment.nb-02230136.notice-board
+--- C:\Users\DELL\AppData\Local\Temp\LIVE-1143696733/apps.v1.Deployment.nb-02230136.notice-board	2026-10-15 19:44:02.321442500 +0600
++++ C:\Users\DELL\AppData\Local\Temp\MERGED-900457583/apps.v1.Deployment.nb-02230136.notice-board	2026-10-15 19:44:02.321973200 +0600
+@@ -5,10 +5,9 @@
+     deployment.kubernetes.io/revision: "6"
+     kubectl.kubernetes.io/last-applied-configuration: |
+       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"kubernetes.io/change-cause":"task 6.1: release 1.2.0-broken"},"labels":{"app":"notice-board"},"name":"notice-board","namespace":"nb-02230136"},"spec":{"minReadySeconds":5,"progressDeadlineSeconds":60,"replicas":3,"selector":{"matchLabels":{"app":"notice-board"}},"strategy":{"rollingUpdate":{"maxSurge":1,"maxUnavailable":0},"type":"RollingUpdate"},"template":{"metadata":{"labels":{"app":"notice-board","version":"1.2.0-broken"}},"spec":{"containers":[{"image":"notice-board:02230136-1.2.0-broken","imagePullPolicy":"Never","livenessProbe":{"failureThreshold":3,"initialDelaySeconds":10,"periodSeconds":10,"tcpSocket":{"port":"http"}},"name":"notice-board","ports":[{"containerPort":8080,"name":"http"}],"readinessProbe":{"failureThreshold":2,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":2,"timeoutSeconds":1},"resources":{"limits":{"cpu":"150m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"runAsNonRoot":true}}]}}}}
+-    kubernetes.io/change-cause: 'task 5.3: release 1.1.0 with RollingUpdate 0/1, minReady
+-      5'
++    kubernetes.io/change-cause: PASTE_CHANGE_CAUSE_HERE
+   creationTimestamp: "2026-10-15T11:37:23Z"
+-  generation: 6
++  generation: 7
+   labels:
+     app: notice-board
+   name: notice-board
+kubectl diff exit code: 1
+

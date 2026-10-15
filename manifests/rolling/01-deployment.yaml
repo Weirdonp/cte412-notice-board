@@ -14,7 +14,7 @@ metadata:
   annotations:
     # Shown by `kubectl rollout history`. Rewritten with every release because the
     # imperative `kubectl annotate` is not allowed in this lab.
-    kubernetes.io/change-cause: "task 5.3: release 1.1.0 with RollingUpdate 0/1, minReady 5"
+    kubernetes.io/change-cause: "PASTE_CHANGE_CAUSE_HERE"
 spec:
   # 3 replicas (Task 3.1). With maxSurge 1 a rollout peaks at 4 Pods, which the quota allows.
   replicas: 3
@@ -25,7 +25,7 @@ spec:
   # Default 0: a new Pod counts as available as soon as it is Ready. Task 5.3 raises it to 5.
   minReadySeconds: 5   # task 5.3: a new Pod must stay Ready for 5 s before it counts as available
   # Default 600 s: Task 6.1 lowers it to 60 so a stuck rollout is marked failed after one minute.
-  progressDeadlineSeconds: 600
+  progressDeadlineSeconds: 60   # task 6.1: a rollout that makes no progress for 60 s is marked failed
   selector:
     matchLabels:
       # Matches every version, so old and new Pods sit behind the Service together during a rollout.
